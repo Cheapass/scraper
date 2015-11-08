@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/Cheapass/scraper/issues"
   },
-  "homepage": "https://github.com/Cheapass/scraper#readme"
+  "homepage": "https://github.com/Cheapass/scraper#readme",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "request": "^2.65.0"
+  }
 }
