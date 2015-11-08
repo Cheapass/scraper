@@ -1,0 +1,23 @@
+{
+  "name": "scraper",
+  "version": "0.0.1",
+  "description": "A simple Web Scraper to fetch relevant information from any Product Page",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cheapass/scraper.git"
+  },
+  "keywords": [
+    "web",
+    "craper"
+  ],
+  "author": "Aakash Goel <aakash.lpin@gmail.com> (http://aakashgoel.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cheapass/scraper/issues"
+  },
+  "homepage": "https://github.com/Cheapass/scraper#readme"
+}
