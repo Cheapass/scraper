@@ -10,7 +10,14 @@ function getTitle ($) {
   const $titles = $('[itemprop="name"]');
   const $title = $titles.length > 1 ? $($titles[0]) : $titles;
   const title = cleanTitle($title.text());
-  return title;
+
+  const $subtitles = $('.subtitle');
+  const $subtitle = $subtitles.length > 1 ? $($subtitles[0]) : $subtitles;
+  const subtitle = $subtitle.length ? cleanTitle($subtitle.text()) : '';
+  if (!$subtitle.length) {
+    return title;
+  }
+  return `${title} ${subtitle}`;
 }
 
 function cleanPrice (str) {
