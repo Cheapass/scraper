@@ -30,7 +30,7 @@ function handleScrape (req, res) {
       });
     }
 
-    res.json({[site]: merge({ url }, require(`./src/sites/${site}.com`)['processResponse'](body))});
+    res.json({[site]: merge({ url, site }, require(`./src/sites/${site}.com`)['processResponse'](body))});
   });
 };
 
