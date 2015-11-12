@@ -8,19 +8,21 @@ let lodash = require('lodash');
 let merge = lodash.merge;
 
 let utils = require('./src/utils');
-// let flipkart = require('./src/sites/flipkart.com');
-// let snapdeal = require('./src/sites/snapdeal.com');
+let config = require('./src/config');
 
 function handleScrape (req, res) {
   const url = req.query.url;
   const site = req.query.site;
 
   const requestPayload = {
-    url,
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.94 Safari/537.36'
-    }
+    url
   };
+
+  if (config.prefs[site].userAgent) {
+    requestPayload.headers = {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.94 Safari/537.36'
+    };
+  }
 
   request(requestPayload, (err, response, body) => {
     const statusCode = response.statusCode;
@@ -30,7 +32,7 @@ function handleScrape (req, res) {
       });
     }
 
-    res.json({[site]: merge({ url, site }, require(`./src/sites/${site}.com`)['processResponse'](body))});
+    res.json({[site]: merge({ url, site }, require(`./src/sites/${config.prefs[site].filename}`)['processResponse'](body))});
   });
 };
 
