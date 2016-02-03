@@ -39,6 +39,7 @@ function handleScrape (req, res) {
 app.use('/scrape', (req, res, next) => {
   const url = req.query.url;
   const site = req.query.site;
+  console.log('scraping => ', url);
 
   if (!url) {
     return res.status(400).json({
